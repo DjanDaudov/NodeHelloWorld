@@ -3,10 +3,10 @@ pipeline {
     stages {
         stage('build') {
             steps {
-                echo "Hello World!"
-                sh "echo Hello from the shell"
-                sh "hostname"
-                sh "uptime"
+                sh "docker build . -t helloworld"
+                sh "docker stop hellonode || true"
+                sh "docker rm hellonode || true"
+                sh "docker run -d -p 8000:8000 --name hellonode helloworld"
             }
         }
     }
