@@ -3,6 +3,7 @@ pipeline {
     stages {
         stage('build') {
             steps {
+                sh "rm -rf NodeHelloWorld"
                 sh "git clone https://github.com/DenisStagniunas/NodeHelloWorld.git"
                 sh "docker . -t denones/nodehelloworld:${BUILD_NUMBER}"
                 sh "docker login -u denones -p dockerhub123"
