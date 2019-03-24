@@ -3,7 +3,7 @@ var http = require('http');
 
 var server = http.createServer(function (request, response) {
   response.writeHead(200, {"Content-Type": "text/plain"});
-  response.end("Hello Kubernetes NodeApp!22! \n");
+  response.end("Hello Kubernetes 18:37 \n");
 });
 
 
