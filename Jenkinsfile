@@ -1,4 +1,4 @@
-pipeline {
+ pipeline {
     agent { label 'master' }
     stages {
         stage('Building image') {
@@ -13,4 +13,3 @@ pipeline {
         }
       }
     }
-}
