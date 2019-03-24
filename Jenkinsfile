@@ -1,15 +1,10 @@
- pipeline {
+pipeline {
     agent { label 'master' }
     stages {
-        stage('Building image') {
-          steps{
-            script {
-              IMAGE_NAME="denones/nodehelloworld:$BUILD_NUMBER"
-              docker build /home/vagrant/NodeHelloWorld -t $IMAGE_NAME
-              docker push $IMAGE_NAME
-              kubectl set image deployment/nodehelloworld nodehelloworld=$IMAGE_NAME
+        stage('build') {
+            steps {
+                sh "echo ${BUILD_NUMBER}"
             }
-          }
         }
-      }
     }
+}
